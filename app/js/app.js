@@ -153,6 +153,12 @@ jQuery(function($) {
         return !todo.completed;
       });
     },
+    getImportantTodos: function() {
+      //we return the filtered todos that are not set as completed
+      return this.todos.filter(function(todo) {
+        return todo.important;
+      });
+    },
     //we get the completed todos using filter method
     getCompletedTodos: function() {
       return this.todos.filter(function(todo) {
@@ -168,6 +174,9 @@ jQuery(function($) {
       //check if filter is set as completed (uses router url)
       if (this.filter === 'completed') {
         return this.getCompletedTodos();
+      }
+      if (this.filter === 'important') {
+        return this.getImportantTodos();
       }
 
       return this.todos;
