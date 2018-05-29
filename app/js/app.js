@@ -97,7 +97,9 @@ jQuery(function($) {
         //binds focusout for the input with edit class (updates)
         .on('focusout', '.edit', this.update.bind(this))
         //binds a click to the button with the destroy class
-        .on('click', '.destroy', this.destroy.bind(this));
+        .on('click', '.destroy', this.destroy.bind(this))
+        //binds a click to the button with the important class
+        .on('click', '.important', this.important.bind(this));
     },
     //function that renders the items to the screen
     render: function() {
@@ -212,7 +214,8 @@ jQuery(function($) {
       this.todos.push({
         id: util.uuid(),
         title: val,
-        completed: false
+        completed: false,
+        important: false
       });
 
       //then we empty the input
@@ -226,6 +229,15 @@ jQuery(function($) {
       var i = this.indexFromEl(e.target);
       //we set the completed for each todo to opposite of what it is
       this.todos[i].completed = !this.todos[i].completed;
+
+      //we run our render method
+      this.render();
+    },
+    important: function(e) {
+      //we grab the index for the related todo item
+      var i = this.indexFromEl(e.target);
+      //we set the completed for each todo to opposite of what it is
+      this.todos[i].important = !this.todos[i].important;
 
       //we run our render method
       this.render();
