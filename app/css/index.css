@@ -237,6 +237,35 @@ label[for='toggle-all'] {
   display: block;
 }
 
+/* Important button */
+#todo-list li .important {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 45px;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  margin: auto 0;
+  font-size: 30px;
+  color: #948e15e7;
+  margin-bottom: 11px;
+  transition: color 0.2s ease-out;
+}
+
+#todo-list li .important:hover {
+  color: #d1d113af;
+}
+
+#todo-list li .important:after {
+  content: '!!';
+}
+
+#todo-list li:hover .important {
+  display: block;
+}
+
+
 #todo-list li .edit {
   display: none;
 }
