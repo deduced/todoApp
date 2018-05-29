@@ -265,6 +265,9 @@ label[for='toggle-all'] {
   display: block;
 }
 
+#todo-list li.importance {
+  background-color: rgba(189, 157, 157, 0.295);
+}
 
 #todo-list li .edit {
   display: none;
