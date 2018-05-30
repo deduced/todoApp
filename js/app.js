@@ -154,7 +154,7 @@ jQuery(function($) {
       });
     },
     getImportantTodos: function() {
-      //we return the filtered todos that are not set as completed
+      //we return the filtered todos that are marked as important
       return this.todos.filter(function(todo) {
         return todo.important;
       });
@@ -245,7 +245,7 @@ jQuery(function($) {
     important: function(e) {
       //we grab the index for the related todo item
       var i = this.indexFromEl(e.target);
-      //we set the completed for each todo to opposite of what it is
+      //we set important for each todo to opposite of what it is
       this.todos[i].important = !this.todos[i].important;
 
       //we run our render method
